@@ -1,0 +1,28 @@
+name: "Github Profile Repositories"
+description: "Automatically create repositories list for your Github Profile"
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  github-token:
+    description: "The Github token."
+    required: true
+  contributed-to:
+    description: "Allow to list contributed to repositories"
+    default: true
+    required: false
+  sort-by:
+    description: "The method to sort the repositories list. Support (stars|pull-requests|commits|latest-commit). By default, it will using `stars`."
+    default: 'stars'
+    required: false
+  minimum-stars:
+    description: "The minimum stars of repository to be list."
+    default: 0
+    required: false
+  minimum-pull-requests:
+    description: "The minimum pull requests of repository to be list."
+    default: 0
+    required: false
+runs:
+  using: "node12"
+  main: "dist/index.js"

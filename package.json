@@ -1,0 +1,40 @@
+{
+  "name": "github-profile-repositories",
+  "version": "2.1.0",
+  "description": "Automatically request changes pull requests",
+  "main": "dist/main.ts",
+  "scripts": {
+    "build": "ncc build src/main.ts",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntsd/github-profile-repositories.git"
+  },
+  "keywords": [
+    "actions"
+  ],
+  "author": "ntsd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ntsd/github-profile-repositories/issues"
+  },
+  "homepage": "https://github.com/ntsd/github-profile-repositories#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.9",
+    "@vercel/ncc": "^0.32.0",
+    "jest": "^27.3.1",
+    "nock": "^13.2.1",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
+  }
+}
