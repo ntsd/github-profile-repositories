@@ -4,6 +4,7 @@
   "description": "Automatically request changes pull requests",
   "main": "dist/main.ts",
   "scripts": {
+    "run": "ncc run src/run.ts",
     "build": "ncc build src/main.ts",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
@@ -25,12 +26,15 @@
   "homepage": "https://github.com/ntsd/github-profile-repositories#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0"
+    "@actions/github": "^5.0.0",
+    "liquidjs": "^9.28.5",
+    "node-fetch": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.9",
     "@vercel/ncc": "^0.32.0",
+    "dotenv": "^10.0.0",
     "jest": "^27.3.1",
     "nock": "^13.2.1",
     "prettier": "^2.4.1",
