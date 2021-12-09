@@ -1,7 +1,14 @@
 import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
-async function queryRepositories(token, username) {
+interface Repository {
+  name: string;
+  url: string;
+  stargazerCount: number;
+  description?: string;
+}
+
+async function queryRepositories(token, username): Promise<any> {
   const headers = {
     Authorization: `bearer ${token}`,
   };
@@ -28,6 +35,10 @@ async function queryRepositories(token, username) {
   return data;
 }
 
-export async function getRepositories(token: string, username: string) {
-  const repositories = queryRepositories(token, username);
+export async function getRepositories(
+  token: string,
+  username: string
+): Promise<Repository[]> {
+  const query = await queryRepositories(token, username);
+  return query.data.user.repositories.nodes;
 }

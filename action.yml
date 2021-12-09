@@ -19,7 +19,7 @@ inputs:
     default: true
     required: false
   repositories-limit:
-    description: "The limit number of repositories will render"
+    description: "The limit number of repositories will render, max 25"
     default: 10
     required: false
   repositories-order-by:

@@ -4,7 +4,7 @@
 query {
             user(login: "ntsd") {
               name
-  						repositories(first: 10, orderBy: {field:STARGAZERS, direction: DESC}) {
+              repositories(first: 10, orderBy: {field:STARGAZERS, direction: DESC}) {
                 nodes {
                   name
                   url
