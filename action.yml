@@ -12,8 +12,7 @@ inputs:
     required: true
   render-file:
     description: "The rendered out put file."
-    default: "README.md"
-    required: false
+    required: true
   limit:
     description: "The limit number of repositories will render, max 25"
     default: 10
