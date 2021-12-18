@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from './fetch.js'
 import { GITHUB_GRAPHQL_URL } from "./const.js";
 
 async function queryUsername(token): Promise<GithubResponse> {

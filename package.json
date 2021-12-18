@@ -2,8 +2,7 @@
   "name": "github-profile-repositories",
   "version": "2.1.0",
   "description": "Automatically request changes pull requests",
-  "type": "module",
-  "exports": "./dist/main.ts",
+  "main": "dist/main.ts",
   "scripts": {
     "run": "ncc run src/run.ts",
     "build": "ncc build src/main.ts",
