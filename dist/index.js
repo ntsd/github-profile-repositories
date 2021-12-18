@@ -9691,8 +9691,15 @@ function getContributedByYear(token, user, year) {
                     name
                     url
                     stargazerCount
+                    forkCount
                     isPrivate
                     description
+                    createdAt
+                    updatedAt
+                    primaryLanguage {
+                      name
+                      color
+                    }
                     owner {
                       login
                     }
@@ -9703,6 +9710,12 @@ function getContributedByYear(token, user, year) {
                       pullRequest {
                         title
                         url
+                        createdAt
+                        updatedAt
+                        closed
+                        closedAt
+                        merged
+                        mergedAt
                       }
                     }
                   }
@@ -9803,8 +9816,15 @@ function queryRepositories(input) {
                   name
                   url
                   stargazerCount
+                  forkCount
                   isPrivate
                   description
+                  createdAt
+                  updatedAt
+                  primaryLanguage {
+                    name
+                    color
+                  }
                 }
               }
             }
