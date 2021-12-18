@@ -10,7 +10,7 @@ async function run() {
     token,
     templateFile: "./example/TEMPLATE.md",
     renderFile: "./example/RENDER.md",
-    limit: 10,
+    limit: 5,
     repositoriesOrderBy: "STARGAZERS",
     contributedOrderBy: "STARGAZERS",
   });
