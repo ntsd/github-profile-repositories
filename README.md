@@ -24,19 +24,19 @@ jobs:
   github-profile:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Github Profile Repositories
-        uses: ntsd/github-profile-repositories
+        uses: ntsd/github-profile-repositories@master
         with:
           github-token: "${{ secrets.MY_GITHUB_TOKEN }}"
-          template-file: "TEMPLATE.md"
-          render-file: "README.md"
+          template-file: "./TEMPLATE.md"
+          render-file: "./README.md"
       - name: Commit files
         run: |
-          git commit -m "docs: auto update README.md" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          git config --local user.email "ntsd@users.noreply.github.com"
+          git config --local user.name "ntsd"
+          git commit -am "docs: auto update README.md"
+          git push
 ```
 
 ## Resources
