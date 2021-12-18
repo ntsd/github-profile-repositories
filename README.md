@@ -18,7 +18,7 @@ This action required Github Token which it's required input `github-token`. The 
 
 ```yml
 name: Generate Github Profile
-on: [push, pull_request]
+on: push
 
 jobs:
   github-profile:
