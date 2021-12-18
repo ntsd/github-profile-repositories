@@ -1,4 +1,3 @@
-import console from "console";
 import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
