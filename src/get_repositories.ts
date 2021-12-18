@@ -1,25 +1,30 @@
 import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
-interface Repository {
-  name: string;
-  url: string;
-  stargazerCount: number;
-  description?: string;
+export interface GetRepositoriesInput {
+  token: string;
+  user: User;
+  limit: number;
+  orderBy: string;
 }
 
-async function queryRepositories(token, username): Promise<any> {
+async function queryRepositories(
+  input: GetRepositoriesInput
+): Promise<GithubResponse> {
   const headers = {
-    Authorization: `bearer ${token}`,
+    Authorization: `bearer ${input.token}`,
   };
   const body = {
     query: `query {
-            user(login: "${username}") {
-              repositories(first: 10, orderBy: {field:STARGAZERS, direction: DESC}) {
+            user(login: "${input.user.login}") {
+              repositories(first: ${input.limit * 2}, orderBy: {field: ${
+      input.orderBy
+    }, direction: DESC}) {
                 nodes {
                   name
                   url
                   stargazerCount
+                  isPrivate
                   description
                 }
               }
@@ -32,13 +37,14 @@ async function queryRepositories(token, username): Promise<any> {
     headers: headers,
   });
   const data = await response.json();
-  return data;
+  return data as GithubResponse;
 }
 
 export async function getRepositories(
-  token: string,
-  username: string
+  input: GetRepositoriesInput
 ): Promise<Repository[]> {
-  const query = await queryRepositories(token, username);
-  return query.data.user.repositories.nodes;
+  const query = await queryRepositories(input);
+  return query.data.user.repositories.nodes
+    .filter((r) => !r.isPrivate)
+    .slice(0, input.limit);
 }

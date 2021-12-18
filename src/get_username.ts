@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
-async function queryUsername(token): Promise<any> {
+async function queryUsername(token): Promise<GithubResponse> {
   const headers = {
     Authorization: `bearer ${token}`,
   };
@@ -9,6 +9,7 @@ async function queryUsername(token): Promise<any> {
     query: `query { 
         viewer { 
           login
+          createdAt
         }
       }`,
   };
@@ -18,10 +19,10 @@ async function queryUsername(token): Promise<any> {
     headers: headers,
   });
   const data = await response.json();
-  return data;
+  return data as GithubResponse;
 }
 
-export async function getUsername(token: string): Promise<string> {
+export async function getUsername(token: string): Promise<User> {
   const username = await queryUsername(token);
-  return username.data.viewer.login;
+  return username.data.viewer;
 }

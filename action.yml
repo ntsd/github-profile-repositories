@@ -12,27 +12,19 @@ inputs:
     required: true
   render-file:
     description: "The rendered out put file."
-    default: 'README.md'
+    default: "README.md"
     required: false
-  repositories:
-    description: "Allow to list your repositories"
-    default: true
-    required: false
-  repositories-limit:
+  limit:
     description: "The limit number of repositories will render, max 25"
     default: 10
     required: false
   repositories-order-by:
     description: "The method to sort the repositories list. Support (STARGAZERS|CREATED_AT|UPDATED_AT|PUSHED_AT|NAME). By default, it will using `STARGAZERS`."
-    default: 'STARGAZERS'
+    default: "STARGAZERS"
     required: false
-  contributed-repositories:
-    description: "Allow to list contributed repositories"
-    default: true
-    required: false
-  contributed-limit:
-    description: "The limit number of contributed repositories will render"
-    default: 10
+  contributed-order-by:
+    description: "The method to sort the contributed repositories list. Support (STARGAZERS|OCCURRED_AT). By default, it will using `STARGAZERS`."
+    default: "STARGAZERS"
     required: false
 runs:
   using: "node12"

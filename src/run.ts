@@ -1,4 +1,4 @@
-import { handler } from './handler';
+import { handler } from "./handler";
 require("dotenv").config();
 
 async function run() {
@@ -6,7 +6,14 @@ async function run() {
   if (!token) {
     throw Error("token not found");
   }
-  handler(token);
+  handler({
+    token,
+    templateFile: "./example/TEMPLATE.md",
+    renderFile: "./example/RENDER.md",
+    limit: 10,
+    repositoriesOrderBy: "STARGAZERS",
+    contributedOrderBy: "STARGAZERS",
+  });
 }
 
 run();
