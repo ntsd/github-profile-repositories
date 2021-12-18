@@ -1,6 +1,6 @@
-import { getUsername } from "./get_username";
-import { getRepositories } from "./get_repositories";
-import { getContributed } from "./get_contributed";
+import { getUsername } from "./get_username.js";
+import { getRepositories } from "./get_repositories.js";
+import { getContributed } from "./get_contributed.js";
 import { Liquid } from "liquidjs";
 import * as fs from "fs";
 

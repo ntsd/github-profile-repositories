@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-import { handler } from "./handler";
+import { handler } from "./handler.js";
 
 async function run() {
   const token = core.getInput("github-token", { required: true });

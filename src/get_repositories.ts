@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { GITHUB_GRAPHQL_URL } from "./const";
+import { GITHUB_GRAPHQL_URL } from "./const.js";
 
 export interface GetRepositoriesInput {
   token: string;

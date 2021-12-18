@@ -10030,7 +10030,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getContributed = void 0;
 const node_fetch_1 = __importDefault(__nccwpck_require__(580));
-const const_1 = __nccwpck_require__(32);
+const const_js_1 = __nccwpck_require__(32);
 function getContributedByYear(token, user, year) {
     return __awaiter(this, void 0, void 0, function* () {
         const headers = {
@@ -10065,7 +10065,7 @@ function getContributedByYear(token, user, year) {
             }
           }`,
         };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+        const response = yield (0, node_fetch_1.default)(const_js_1.GITHUB_GRAPHQL_URL, {
             method: "POST",
             body: JSON.stringify(body),
             headers: headers,
@@ -10142,7 +10142,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getRepositories = void 0;
 const node_fetch_1 = __importDefault(__nccwpck_require__(580));
-const const_1 = __nccwpck_require__(32);
+const const_js_1 = __nccwpck_require__(32);
 function queryRepositories(input) {
     return __awaiter(this, void 0, void 0, function* () {
         const headers = {
@@ -10163,7 +10163,7 @@ function queryRepositories(input) {
             }
           }`,
         };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+        const response = yield (0, node_fetch_1.default)(const_js_1.GITHUB_GRAPHQL_URL, {
             method: "POST",
             body: JSON.stringify(body),
             headers: headers,
@@ -10204,7 +10204,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getUsername = void 0;
 const node_fetch_1 = __importDefault(__nccwpck_require__(580));
-const const_1 = __nccwpck_require__(32);
+const const_js_1 = __nccwpck_require__(32);
 function queryUsername(token) {
     return __awaiter(this, void 0, void 0, function* () {
         const headers = {
@@ -10218,7 +10218,7 @@ function queryUsername(token) {
         }
       }`,
         };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+        const response = yield (0, node_fetch_1.default)(const_js_1.GITHUB_GRAPHQL_URL, {
             method: "POST",
             body: JSON.stringify(body),
             headers: headers,
@@ -10272,21 +10272,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.handler = void 0;
-const get_username_1 = __nccwpck_require__(604);
-const get_repositories_1 = __nccwpck_require__(625);
-const get_contributed_1 = __nccwpck_require__(637);
+const get_username_js_1 = __nccwpck_require__(604);
+const get_repositories_js_1 = __nccwpck_require__(625);
+const get_contributed_js_1 = __nccwpck_require__(637);
 const liquidjs_1 = __nccwpck_require__(385);
 const fs = __importStar(__nccwpck_require__(147));
 function handler(cfg) {
     return __awaiter(this, void 0, void 0, function* () {
-        const user = yield (0, get_username_1.getUsername)(cfg.token);
-        const repositories = yield (0, get_repositories_1.getRepositories)({
+        const user = yield (0, get_username_js_1.getUsername)(cfg.token);
+        const repositories = yield (0, get_repositories_js_1.getRepositories)({
             token: cfg.token,
             user,
             limit: cfg.limit,
             orderBy: cfg.repositoriesOrderBy,
         });
-        const contributed = yield (0, get_contributed_1.getContributed)({
+        const contributed = yield (0, get_contributed_js_1.getContributed)({
             token: cfg.token,
             user,
             limit: cfg.limit,
@@ -10350,7 +10350,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
-const handler_1 = __nccwpck_require__(502);
+const handler_js_1 = __nccwpck_require__(502);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const token = core.getInput("github-token", { required: true });
@@ -10363,7 +10363,7 @@ function run() {
         const contributedOrderBy = core.getInput("contributed-order-by", {
             required: true,
         });
-        (0, handler_1.handler)({
+        (0, handler_js_1.handler)({
             token,
             templateFile,
             renderFile,
