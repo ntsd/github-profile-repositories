@@ -132,7 +132,7 @@ Name: freqtrade
 
 URL: https://github.com/freqtrade/freqtrade
 
-Star: 14103
+Star: 14105
 
 Description: Free, open source crypto trading bot
 
@@ -148,7 +148,7 @@ Name: Yosoro
 
 URL: https://github.com/IceEnd/Yosoro
 
-Star: 2594
+Star: 2595
 
 Description: :shaved_ice:Beautiful Markdown NoteBook. 🏖
 

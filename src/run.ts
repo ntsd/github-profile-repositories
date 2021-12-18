@@ -1,4 +1,4 @@
-import { handler } from "./handler.js";
+import { handler } from "./handler";
 require("dotenv").config();
 
 async function run() {
