@@ -12,7 +12,9 @@ The template file will render to required input `render-file`.
 
 ### Template Parameters
 
-repositories
+Template parameters will following data from Github GraphQL API. [Repository](https://docs.github.com/en/graphql/reference/objects#repository) and [PullRequest](https://docs.github.com/en/graphql/reference/objects#pullrequest)
+
+#### repositories
 
 ```GraphQL
 repositories [
@@ -20,13 +22,20 @@ repositories [
     name
     url
     stargazerCount
+    forkCount
     isPrivate
     description
+    createdAt
+    updatedAt
+    primaryLanguage {
+      name
+      color
+    }
   }
 ]
 ```
 
-contributed
+#### contributed
 
 ```GraphQL
 contributed [
@@ -34,8 +43,15 @@ contributed [
     name
     url
     stargazerCount
+    forkCount
     isPrivate
     description
+    createdAt
+    updatedAt
+    primaryLanguage {
+      name
+      color
+    }
     owner {
       login
     }
@@ -45,6 +61,12 @@ contributed [
         pullRequest {
           title
           url
+          createdAt
+          updatedAt
+          closed
+          closedAt
+          merged
+          mergedAt
         }
       }
     ]

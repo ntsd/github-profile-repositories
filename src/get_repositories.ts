@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
 export interface GetRepositoriesInput {
@@ -24,8 +24,15 @@ async function queryRepositories(
                   name
                   url
                   stargazerCount
+                  forkCount
                   isPrivate
                   description
+                  createdAt
+                  updatedAt
+                  primaryLanguage {
+                    name
+                    color
+                  }
                 }
               }
             }

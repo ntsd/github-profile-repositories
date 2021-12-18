@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 import { GITHUB_GRAPHQL_URL } from "./const";
 
 export interface GetContributedInput {
@@ -25,8 +25,15 @@ async function getContributedByYear(
                     name
                     url
                     stargazerCount
+                    forkCount
                     isPrivate
                     description
+                    createdAt
+                    updatedAt
+                    primaryLanguage {
+                      name
+                      color
+                    }
                     owner {
                       login
                     }
@@ -37,6 +44,12 @@ async function getContributedByYear(
                       pullRequest {
                         title
                         url
+                        createdAt
+                        updatedAt
+                        closed
+                        closedAt
+                        merged
+                        mergedAt
                       }
                     }
                   }
