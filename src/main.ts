@@ -23,12 +23,11 @@ async function run() {
     contributedOrderBy,
   })
     .then(() => {
-      console.log(
+      core.info(
         `render successful, template ${templateFile} output ${renderFile}`
       );
     })
     .catch((err) => {
-      console.error(err);
       core.setFailed(err);
     });
 }

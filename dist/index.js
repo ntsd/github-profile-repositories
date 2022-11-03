@@ -10044,10 +10044,9 @@ function run() {
             contributedOrderBy,
         })
             .then(() => {
-            console.log(`render successful, template ${templateFile} output ${renderFile}`);
+            core.info(`render successful, template ${templateFile} output ${renderFile}`);
         })
-            .catch(err => {
-            console.error(err);
+            .catch((err) => {
             core.setFailed(err);
         });
     });
