@@ -1,7 +1,7 @@
 name: "Github Profile Repositories"
 description: "Automatically create repositories list for your Github Profile"
 branding:
-  icon: "check-circle"
+  icon: "github"
   color: "red"
 inputs:
   github-token:
