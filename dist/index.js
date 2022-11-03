@@ -9961,21 +9961,23 @@ function handler(cfg) {
             limit: cfg.limit,
             orderBy: cfg.contributedOrderBy,
         });
-        fs.readFile(cfg.templateFile, "utf8", (err, data) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            const engine = new liquidjs_1.Liquid();
-            const tpl = engine.parse(data);
-            engine.render(tpl, { repositories, contributed }).then((result) => {
-                try {
-                    fs.writeFileSync(cfg.renderFile, result);
-                    console.log("render successful");
+        return new Promise((resolve, reject) => {
+            fs.readFile(cfg.templateFile, "utf8", (err, data) => {
+                if (err) {
+                    reject(err);
+                    return;
                 }
-                catch (err) {
-                    console.error(err);
-                }
+                const engine = new liquidjs_1.Liquid();
+                const tpl = engine.parse(data);
+                engine.render(tpl, { repositories, contributed }).then((result) => {
+                    try {
+                        fs.writeFileSync(cfg.renderFile, result);
+                        resolve();
+                    }
+                    catch (err) {
+                        reject(err);
+                    }
+                });
             });
         });
     });
@@ -10040,6 +10042,13 @@ function run() {
             limit,
             repositoriesOrderBy,
             contributedOrderBy,
+        })
+            .then(() => {
+            console.log(`render successful, template ${templateFile} output ${renderFile}`);
+        })
+            .catch(err => {
+            console.error(err);
+            core.setFailed(err);
         });
     });
 }
