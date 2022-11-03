@@ -21,7 +21,6 @@ export async function handler(cfg: Config): Promise<void> {
     orderBy: cfg.contributedOrderBy,
   });
 
-
   return new Promise((resolve, reject) => {
     fs.readFile(cfg.templateFile, "utf8", (err, data) => {
       if (err) {

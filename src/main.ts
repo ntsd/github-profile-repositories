@@ -6,7 +6,7 @@ async function run() {
   const templateFile = core.getInput("template-file", { required: true });
   const renderFile = core.getInput("render-file", { required: true });
   const limit = parseInt(core.getInput("limit", { required: true }));
-  
+
   const repositoriesOrderBy = core.getInput("repositories-order-by", {
     required: true,
   });
@@ -22,13 +22,15 @@ async function run() {
     repositoriesOrderBy,
     contributedOrderBy,
   })
-  .then(() => {
-    console.log(`render successful, template ${templateFile} output ${renderFile}`)
-  })
-  .catch(err => {
-    console.error(err)
-    core.setFailed(err)
-  });
+    .then(() => {
+      console.log(
+        `render successful, template ${templateFile} output ${renderFile}`
+      );
+    })
+    .catch((err) => {
+      console.error(err);
+      core.setFailed(err);
+    });
 }
 
 run();
