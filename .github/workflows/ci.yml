@@ -1,5 +1,9 @@
 name: CI
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron:  '0 0 * * 0' # At 00:00 on Sunday
 
 jobs:
   test:
@@ -22,3 +26,11 @@ jobs:
 
     - name: Check build artefact has been checked in
       run: npm run build && git diff --quiet
+
+    - name: Create .env file
+      run: |
+        touch .env
+        echo GITHUB_TOKEN=${{ secrets.MY_GITHUB_TOKEN }} >> .env
+
+    - name: Test run
+      run: npm run run

@@ -19,7 +19,7 @@ async function run() {
     templateFile: "./example/TEMPLATE.md",
     renderFile: "./example/RENDER.md",
     limit: 5,
-    repositoriesOrderBy: "OCCURRED_AT",
+    repositoriesOrderBy: "CREATED_AT",
     contributedOrderBy: "OCCURRED_AT",
   });
 }

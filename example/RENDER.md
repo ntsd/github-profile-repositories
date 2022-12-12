@@ -5,23 +5,23 @@
 
 Index: 1
 
-Name: freqtrade-configs
+Name: Lissy93
 
-URL: https://github.com/ntsd/freqtrade-configs
+URL: https://github.com/ntsd/Lissy93
 
-Star: 19
+Star: 0
 
-Description: 
+Description: 🥳 Hello World!
 
 <hr />
 
 Index: 2
 
-Name: shopee-autobuy
+Name: sui-move-example
 
-URL: https://github.com/ntsd/shopee-autobuy
+URL: https://github.com/ntsd/sui-move-example
 
-Star: 13
+Star: 0
 
 Description: 
 
@@ -29,37 +29,37 @@ Description:
 
 Index: 3
 
-Name: dotfiles
+Name: guess-number-evm
 
-URL: https://github.com/ntsd/dotfiles
+URL: https://github.com/ntsd/guess-number-evm
 
-Star: 3
+Star: 0
 
-Description: My Dotfiles
+Description: A guess number game on EVM
 
 <hr />
 
 Index: 4
 
-Name: docker-templates
+Name: liquidjs-action
 
-URL: https://github.com/ntsd/docker-templates
+URL: https://github.com/ntsd/liquidjs-action
 
-Star: 3
+Star: 2
 
-Description: My docker templates for make things easier to setup
+Description: Github Action to render LiquidJS
 
 <hr />
 
 Index: 5
 
-Name: alpha-interface
+Name: homebrew-cross-clipboard
 
-URL: https://github.com/ntsd/alpha-interface
+URL: https://github.com/ntsd/homebrew-cross-clipboard
 
-Star: 2
+Star: 0
 
-Description: A Hackathon project created by Alpha Interface team for Agri-D Food Hack
+Description: 
 
 <hr />
 
@@ -68,85 +68,93 @@ Description: A Hackathon project created by Alpha Interface team for Agri-D Food
 
 Index: 1
 
-Name: freqtrade
+Name: hacktoberfest-museum
 
-URL: https://github.com/freqtrade/freqtrade
+URL: https://github.com/creatorsgarten/hacktoberfest-museum
 
-Star: 14105
+Star: 19
 
-Description: Free, open source crypto trading bot
+Description: Gallery of awesome Hacktoberfest projects made in Thailand. Part of the Hacktoberfest Thailand 2022 event.
 
 Contributions:
 
- - Add show Pairlists Whitelist on RFC and Telegram
+ - docs: add cross clipboard
 
 
 <hr />
 Index: 2
 
-Name: Yosoro
+Name: react-useless
 
-URL: https://github.com/IceEnd/Yosoro
+URL: https://github.com/narze/react-useless
 
-Star: 2595
+Star: 46
 
-Description: :shaved_ice:Beautiful Markdown NoteBook. 🏖
+Description: Monorepo for react hooks, mostly useless btw
 
 Contributions:
 
- - Update webpack version in package.json
- - Merge Medium Post
+ - refactor: use google and use thanos
+ - feat: add useTiktok
+ - feat: add use thanos
+ - feat: add use map
+ - feat: add useGoogle
 
 
 <hr />
 Index: 3
 
-Name: crontab-ui
+Name: awesome-salim-quotes
 
-URL: https://github.com/alseambusher/crontab-ui
+URL: https://github.com/narze/awesome-salim-quotes
 
-Star: 1785
+Star: 73
 
-Description: Easy and safe way to manage your crontab file
+Description: "ผมไม่ใช่สลิ่มนะ แต่..."
 
 Contributions:
 
- - Make right click paste work
+ - feat: add 2 salim quotes
 
 
 <hr />
 Index: 4
 
-Name: carbon-charts
+Name: Mercenaries-Farm-bot
 
-URL: https://github.com/carbon-design-system/carbon-charts
+URL: https://github.com/Efemache/Mercenaries-Farm-bot
 
-Star: 426
+Star: 29
 
-Description: :bar_chart: :chart_with_upwards_trend:⠀Robust dataviz framework implemented using D3 & typescript
+Description: Bot for Hearthstone mercenaries mode
 
 Contributions:
 
- - feat(pie): add sortFunction option for pie chart
- - feat(pie): add sortFunction option for pie chart
+ - Feat/gen tmp img
+ - Feat/better target friend
+ - Fix/new resolution
+ - new: add notification hook
+ - new: add notification hook
 
 
 <hr />
 Index: 5
 
-Name: spotify-github-profile
+Name: NostalgiaForInfinity
 
-URL: https://github.com/kittinan/spotify-github-profile
+URL: https://github.com/ntsd/NostalgiaForInfinity
 
-Star: 389
+Star: 0
 
-Description: Show your Spotify playing on your Github profile
+Description: Trading strategy for the Freqtrade crypto bot
 
 Contributions:
 
- - Add open in Spotify link option
- - Fix avoid to load image when cover_image is false
- - Add hidden cover image option
+ - Merge upstream
+ - Merge conflict fix
+ - Fetch upstream
+ - Merge from upstream
+ - Merge conflict
 
 
 <hr />

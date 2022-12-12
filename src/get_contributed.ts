@@ -13,11 +13,12 @@ async function getContributedByYear(
   user: User,
   year: number
 ): Promise<GithubResponse> {
-  const headers = {
-    Authorization: `bearer ${token}`,
-  };
-  const body = {
-    query: `query {
+  return new Promise<GithubResponse>((resolve, reject) => {
+    const headers = {
+      Authorization: `bearer ${token}`,
+    };
+    const body = {
+      query: `query {
             user(login: "${user.login}") {
               contributionsCollection(from: "${year}-01-01T00:00:00", to: "${year}-12-31T23:59:59") {
                 pullRequestContributionsByRepository(maxRepositories: 100, excludeFirst:true) {
@@ -57,13 +58,26 @@ async function getContributedByYear(
               }
             }
           }`,
-  };
-  const response = await fetch(GITHUB_GRAPHQL_URL, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: headers,
+    };
+    fetch(GITHUB_GRAPHQL_URL, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: headers,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        if (json.errors) {
+          reject(json.errors[0].message);
+          return;
+        }
+        resolve(json);
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
-  return response.json() as Promise<GithubResponse>;
 }
 
 async function queryContributed(

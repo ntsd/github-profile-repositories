@@ -11,40 +11,53 @@ export interface GetRepositoriesInput {
 async function queryRepositories(
   input: GetRepositoriesInput
 ): Promise<GithubResponse> {
-  const headers = {
-    Authorization: `bearer ${input.token}`,
-  };
-  const body = {
-    query: `query {
-            user(login: "${input.user.login}") {
-              repositories(first: ${input.limit * 2}, orderBy: {field: ${
-      input.orderBy
-    }, direction: DESC}) {
-                nodes {
-                  name
-                  url
-                  stargazerCount
-                  forkCount
-                  isPrivate
-                  description
-                  createdAt
-                  updatedAt
-                  primaryLanguage {
-                    name
-                    color
-                  }
-                }
+  return new Promise<GithubResponse>((resolve, reject) => {
+    const headers = {
+      Authorization: `bearer ${input.token}`,
+    };
+    const body = {
+      query: `query {
+        user(login: "${input.user.login}") {
+          repositories(first: ${input.limit * 2}, orderBy: {field: ${
+        input.orderBy
+      }, direction: DESC}) {
+            nodes {
+              name
+              url
+              stargazerCount
+              forkCount
+              isPrivate
+              description
+              createdAt
+              updatedAt
+              primaryLanguage {
+                name
+                color
               }
             }
-          }`,
-  };
-  const response = await fetch(GITHUB_GRAPHQL_URL, {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: headers,
+          }
+        }
+      }`,
+    };
+    fetch(GITHUB_GRAPHQL_URL, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: headers,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        if (json.errors) {
+          reject(json.errors[0].message);
+          return;
+        }
+        resolve(json);
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
-  const data = await response.json();
-  return data as GithubResponse;
 }
 
 export async function getRepositories(

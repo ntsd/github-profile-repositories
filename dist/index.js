@@ -9679,11 +9679,12 @@ const node_fetch_1 = __importDefault(__nccwpck_require__(467));
 const const_1 = __nccwpck_require__(32);
 function getContributedByYear(token, user, year) {
     return __awaiter(this, void 0, void 0, function* () {
-        const headers = {
-            Authorization: `bearer ${token}`,
-        };
-        const body = {
-            query: `query {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                Authorization: `bearer ${token}`,
+            };
+            const body = {
+                query: `query {
             user(login: "${user.login}") {
               contributionsCollection(from: "${year}-01-01T00:00:00", to: "${year}-12-31T23:59:59") {
                 pullRequestContributionsByRepository(maxRepositories: 100, excludeFirst:true) {
@@ -9723,13 +9724,26 @@ function getContributedByYear(token, user, year) {
               }
             }
           }`,
-        };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
-            method: "POST",
-            body: JSON.stringify(body),
-            headers: headers,
+            };
+            (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: headers,
+            })
+                .then((response) => {
+                return response.json();
+            })
+                .then((json) => {
+                if (json.errors) {
+                    reject(json.errors[0].message);
+                    return;
+                }
+                resolve(json);
+            })
+                .catch((error) => {
+                reject(error);
+            });
         });
-        return response.json();
     });
 }
 function queryContributed(input) {
@@ -9805,38 +9819,51 @@ const node_fetch_1 = __importDefault(__nccwpck_require__(467));
 const const_1 = __nccwpck_require__(32);
 function queryRepositories(input) {
     return __awaiter(this, void 0, void 0, function* () {
-        const headers = {
-            Authorization: `bearer ${input.token}`,
-        };
-        const body = {
-            query: `query {
-            user(login: "${input.user.login}") {
-              repositories(first: ${input.limit * 2}, orderBy: {field: ${input.orderBy}, direction: DESC}) {
-                nodes {
-                  name
-                  url
-                  stargazerCount
-                  forkCount
-                  isPrivate
-                  description
-                  createdAt
-                  updatedAt
-                  primaryLanguage {
-                    name
-                    color
-                  }
-                }
+        return new Promise((resolve, reject) => {
+            const headers = {
+                Authorization: `bearer ${input.token}`,
+            };
+            const body = {
+                query: `query {
+        user(login: "${input.user.login}") {
+          repositories(first: ${input.limit * 2}, orderBy: {field: ${input.orderBy}, direction: DESC}) {
+            nodes {
+              name
+              url
+              stargazerCount
+              forkCount
+              isPrivate
+              description
+              createdAt
+              updatedAt
+              primaryLanguage {
+                name
+                color
               }
             }
-          }`,
-        };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
-            method: "POST",
-            body: JSON.stringify(body),
-            headers: headers,
+          }
+        }
+      }`,
+            };
+            (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: headers,
+            })
+                .then((response) => {
+                return response.json();
+            })
+                .then((json) => {
+                if (json.errors) {
+                    reject(json.errors[0].message);
+                    return;
+                }
+                resolve(json);
+            })
+                .catch((error) => {
+                reject(error);
+            });
         });
-        const data = yield response.json();
-        return data;
     });
 }
 function getRepositories(input) {
@@ -9875,24 +9902,37 @@ const node_fetch_1 = __importDefault(__nccwpck_require__(467));
 const const_1 = __nccwpck_require__(32);
 function queryUsername(token) {
     return __awaiter(this, void 0, void 0, function* () {
-        const headers = {
-            Authorization: `bearer ${token}`,
-        };
-        const body = {
-            query: `query { 
-        viewer { 
-          login
-          createdAt
-        }
-      }`,
-        };
-        const response = yield (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
-            method: "POST",
-            body: JSON.stringify(body),
-            headers: headers,
+        return new Promise((resolve, reject) => {
+            const headers = {
+                Authorization: `bearer ${token}`,
+            };
+            const body = {
+                query: `query { 
+          viewer { 
+            login
+            createdAt
+          }
+        }`,
+            };
+            (0, node_fetch_1.default)(const_1.GITHUB_GRAPHQL_URL, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: headers,
+            })
+                .then((response) => {
+                return response.json();
+            })
+                .then((json) => {
+                if (json.errors) {
+                    reject(json.errors[0].message);
+                    return;
+                }
+                resolve(json);
+            })
+                .catch((error) => {
+                reject(error);
+            });
         });
-        const data = yield response.json();
-        return data;
     });
 }
 function getUsername(token) {
