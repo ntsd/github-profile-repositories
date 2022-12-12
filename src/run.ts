@@ -14,6 +14,14 @@ async function run() {
     repositoriesOrderBy: "STARGAZERS",
     contributedOrderBy: "STARGAZERS",
   });
+  handler({
+    token,
+    templateFile: "./example/TEMPLATE.md",
+    renderFile: "./example/RENDER.md",
+    limit: 5,
+    repositoriesOrderBy: "OCCURRED_AT",
+    contributedOrderBy: "OCCURRED_AT",
+  });
 }
 
 run();

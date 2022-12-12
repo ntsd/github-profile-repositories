@@ -115,8 +115,8 @@ export async function getContributed(
     case "OCCURRED_AT":
       contributed = contributed.sort(
         (a, b) =>
-          new Date(b.contributes[0]?.occurredAt).getTime() -
-          new Date(a.contributes[0]?.occurredAt).getTime()
+          new Date(b.contributions[0]?.occurredAt).getTime() -
+          new Date(a.contributions[0]?.occurredAt).getTime()
       );
       break;
     default:

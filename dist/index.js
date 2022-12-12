@@ -9768,8 +9768,8 @@ function getContributed(input) {
             case "OCCURRED_AT":
                 contributed = contributed.sort((a, b) => {
                     var _a, _b;
-                    return new Date((_a = b.contributes[0]) === null || _a === void 0 ? void 0 : _a.occurredAt).getTime() -
-                        new Date((_b = a.contributes[0]) === null || _b === void 0 ? void 0 : _b.occurredAt).getTime();
+                    return new Date((_a = b.contributions[0]) === null || _a === void 0 ? void 0 : _a.occurredAt).getTime() -
+                        new Date((_b = a.contributions[0]) === null || _b === void 0 ? void 0 : _b.occurredAt).getTime();
                 });
                 break;
             default:

@@ -17,7 +17,7 @@ interface Contributed {
   stargazerCount: number;
   isPrivate: boolean;
   description?: string;
-  contributes: {
+  contributions: {
     occurredAt: string;
     pullRequest: {
       url: string;
