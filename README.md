@@ -76,7 +76,7 @@ contributed [
 
 ## Inputs
 
-`github-token` - This action required Github Token which it's required input. The token will use to query owner repositories and contributions repositories to the [Github GraphQL API](https://docs.github.com/en/graphql). `required`.
+`github-token` - This action required Github Token which it's required input. The token will use to query owner repositories and contributions repositories to the [Github GraphQL API](https://docs.github.com/en/graphql). The token required scopes `repo:status`, `public_repo`, and `user:email` to commit the rendered file if need. `required`.
 
 `template-file` - The file template to render. `required`.
 
